@@ -166,7 +166,7 @@ elif [ $2 = "--image" -o $2 = "-i" ]; then
     fi
     oldimage="$3"
     newimage="$4"
-    find . -type f -iname "*.gns3" -print -exec sed -n "s|$oldimage|$newimage|gp"  "{}" \+
+    find . -iname "*.gns3" -type f -exec sed -i "s|$oldimage|$newimage|g"  "{}" \+
     echo "Project(s) image(s) has been changed succussfully..."
     # Change appliance symbol 
 elif [ $2 = "--symbol" -o $2 = "-s" ]; then
@@ -177,13 +177,13 @@ elif [ $2 = "--symbol" -o $2 = "-s" ]; then
     fi
     oldSymbol=$3
     newSymbol=$4
-    find "$1" -type f -iname "*.gns3" -print  -exec sed  -n "s:$oldSymbol:$newSymbol:g" "{}" \+
+    find "$1" -iname "*.gns3" -type f  -exec sed -i "s:$oldSymbol:$newSymbol:g" "{}" \+
     echo "Symbol(s) has been changed succussfully"
 
 ################## change project NOTE FONT PROPERTIES ################################### 
 elif [ $2 = "--font-type" -o $2 = "-f" ]; then
     newFontType="$3"
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s:\(font-family=..\).[^\\\]*:\1$newFontType:g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s:\(font-family=..\).[^\\\]*:\1$newFontType:g" "{}" \+
     echo "Project(s) font family has been changed succussfully"
 # Change note font-size
 elif [ $2 = "--font-size" -o $2 = "-z" ] ; then
@@ -192,19 +192,19 @@ elif [ $2 = "--font-size" -o $2 = "-z" ] ; then
         exit 1
     fi
     newFontSize="$3";
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s:\(font-size=..\).[^\\\]*:\1$newFontSize:g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s:\(font-size=..\).[^\\\]*:\1$newFontSize:g" "{}" \+
     echo "Project(s) font size has been change succussfully"
 # Changing note font-color 
 elif [ $2 = "--font-color" -o $2 = "-c" ]; then
     validateColor
     newFontColor="$3";
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s:\(fill=..\).[^\\\]*:\1$newFontColor:g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s:\(fill=..\).[^\\\]*:\1$newFontColor:g" "{}" \+
     echo "Project(s) font color has been changed succussfully"
 ################ change APPLIANCE FONT PROPERTIES ##################################
 # Change applicance font-family 
 elif [ $2 = "--afont-type" -o $2 = "-F" ]; then
     newFontType="$3"
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s|\(font-family: \).[^;]*|\1$newFontType|g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s|\(font-family: \).[^;]*|\1$newFontType|g" "{}" \+
     echo "Appliance font family has been changed succussfully"
 # Change appliance font-size
 elif [ $2 = "--afont-size" -o $2 = "-Z" ] ; then
@@ -213,30 +213,33 @@ elif [ $2 = "--afont-size" -o $2 = "-Z" ] ; then
         exit 1
     fi
     newFontSize="$3";
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s|\(font-size: \)[0-9]\+\(\.[0-9]\)\?[^;]*|\1$newFontSize|g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s|\(font-size: \)[0-9]\+\(\.[0-9]\)\?[^;]*|\1$newFontSize|g" "{}" \+
     echo "Appliance font size has been changed succussfully"
 # Changing appliance font-color 
 elif [ $2 = "--afont-color" -o $2 = "-C" ]; then
     validateColor
     newFontColor="$3";
-    find "$1" -type f -iname "*.gns3" -print -exec sed -n "s|\(fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec sed -i "s|\(fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
     echo "Appliance font color has been changed succussfully"
 elif [ "$1" = "--help" -o "$1" = "-h" ]; then
     echo "$(usage)"
 ######################### Getting Information ########################
 # List symbols of an exist project
 elif [ $2 = "--list-symbol" -o $2 = "-ls" ]; then
-    find "$1" -type f -iname "*.gns3" -print -exec grep --color "\\.\(svg\|png\)" "{}" \+
+    find "$1" -iname "*.gns3"  -type f -exec grep --color "\\.\(svg\|png\)" "{}" \+
     # List images of an exist project(s)
 elif [ $2 = "--list-image" -o $2 = "-li" ]; then
     re_images="\\.\(bin\|image\|vmdk\|vdi\|vhd\|qcow2\|qcow\|img\|raw\|ovf\|ova\)"
-    find "$1" -type f -iname "*.gns3" -print -exec grep --color "$re_images" "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec grep --color  "$re_images" "{}" \+
     # List note font properties of an exist project(s)
 elif [ $2 = "--list-font" -o $2 = "-lf" ]; then
-    find "$1" -type f -iname "*.gns3" -print -exec grep --color '\(font-family=..\).[^\]*' "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec grep --color '\(font-family=..\).[^\]*' "{}" \+
     # List appliance font properties of an exist project(s)
 elif [ $2 = "--list-afont" -o $2 = "-lF" ]; then
-    find "$1" -type f -iname "*.gns3" -print -exec grep --color '\(font-family: \).[^;]*' "{}" \+
+    find "$1" -iname "*.gns3" -type f -exec grep --color '\(font-family: \).[^;]*' "{}" \+
+elif [ $2 = "--delete-backup" -o $2 = "-d" ]; then
+    find "$1" -iname "*.gns3.backup*" -type f -exec rm "{}" \+
+    echo "Finished cleaning up ...."
 else
     echo "ERROR!: Unsupported option"
     echo "Try './gns3hack.sh --help' for more information"
