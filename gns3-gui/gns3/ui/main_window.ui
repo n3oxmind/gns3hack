@@ -17,7 +17,8 @@
    <enum>Qt::PreventContextMenu</enum>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
+   <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -87,18 +88,20 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
   <widget class="QWidget" name="uiCentralWidget">
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -168,11 +171,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <layout class="QGridLayout">
     <property name="leftMargin">
@@ -212,7 +216,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -282,11 +287,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <widget class="QMenu" name="uiEditMenu">
     <property name="title">
@@ -407,7 +413,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     <string/>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -477,11 +484,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -509,7 +517,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     <bool>true</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -579,11 +588,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="floating">
     <bool>false</bool>
@@ -672,7 +682,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     <string>Devices</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -742,11 +753,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="iconSize">
     <size>
@@ -781,7 +793,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     <string>Emulation</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -851,11 +864,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="iconSize">
     <size>
@@ -889,7 +903,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -959,11 +974,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
@@ -1009,7 +1025,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     <string>Drawing</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -1079,11 +1096,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="iconSize">
     <size>
@@ -1113,7 +1131,8 @@ QRadioButton::disabled, QCheckBox::disabled {
     </sizepolicy>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -1183,11 +1202,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
@@ -1244,7 +1264,8 @@ QRadioButton::disabled, QCheckBox::disabled {
   </widget>
   <widget class="QDockWidget" name="uiComputeSummaryDockWidget">
    <property name="styleSheet">
-    <string notr="true">QWidget {
+    <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -1314,11 +1335,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
    </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>

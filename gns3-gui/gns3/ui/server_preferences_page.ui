@@ -26,7 +26,8 @@
    <string>Server</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
+   <string notr="true">
+QWidget {
     background-color: #323232;
     color: #BAF73C;
 }
@@ -96,11 +97,12 @@ QRadioButton, QCheckBox {
 QRadioButton::disabled, QCheckBox::disabled {
   color: gray;
 }
-# bg-color=#282828
-# fg-color=#BAF73C
-# tool-bar=#323232
-# selection-bg=#383838 
-# selection-fg=#f2f2f2 </string>
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
