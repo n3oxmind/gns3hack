@@ -58,7 +58,10 @@ usage() {
     printf "  %s\t\t%s\n"  "./gns3hack.sh . -b \"#282828\" -f white -t \"#323232\"" "# All at once in any order"
     printf "  %s\t\t\n"  "./gns3hack.sh . -f white -t \"#323232\" -b black -o 0.99" 
 }
-
+if [ "$#" -le 1 -a "$1" != "--help" ]; then
+    echo "Try './gns3hack.sh --help' for more information "
+    exit 1
+fi
 # Validate the color
 isValidColor () {
     if [[ ! "$1" =~ $re_hexcolor ]] && ! [ "$1" = "white" -o "$1" = "black" -o "$1" = "red" -o "$1" = "green" -o "$1" = "blue" -o "$1" = "cyan" -o "$1" = "gray" -o "$1" = "yellow" ]; then
