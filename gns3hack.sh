@@ -58,7 +58,7 @@ usage() {
     printf "  %s\t\t%s\n"  "./gns3hack.sh . -b \"#282828\" -f white -t \"#323232\"" "# All at once in any order"
     printf "  %s\t\t\n"  "./gns3hack.sh . -f white -t \"#323232\" -b black -o 0.99" 
 }
-if [ "$#" -le 1 -a "$1" != "--help" ]; then
+if [ "$#" -le 1 -a "$1" != "--help" -a "$1" != "--key" ]; then
     echo "Try './gns3hack.sh --help' for more information "
     exit 1
 fi
@@ -159,15 +159,41 @@ changeColor () {
         sed -i "s/$1/$2/g" "$DIR"/gns3/ui/*.ui
     fi
 }
-if [ ! -d "$1" -a "$1" != "--help" ]; then
+iouKeyGen () {
+#   echo "TODO.."
+    echo "start generation IOU license key"
+    hostid=$(hostid)
+    ioukey=$((16#$hostid))
+    hostname=$(hostname)
+    sum=0
+    for (( i=0; i < ${#hostname}; i++ ))
+    do
+        hostchar="${hostname:$i:1}"       # loop through host string
+        # convert ascii char to its equivalent value
+        hostascii=$(printf "%d" "'$hostchar")    
+        (( sum += $hostascii ))
+    done 
+    (( ioukey += sum ))
+    # convert ioukey to hex
+    ioukey=$(printf "%x" $ioukey)
+    #convert ioukey to its equivalent ascii char
+    ioukey=$(echo $ioukey | xxd -r -p)
+    # create the license using md5sum
+    ioupad1=$'\x4B\x58\x21\x81\x56\x7B\x0D\xF3\x21\x43\x9B\x7E\xAC\x1D\xE6\x8A'
+    ioulicense=$(printf '%b' "$ioupad1\x80\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0$ioukey$ioupad1" | md5sum | cut -d ' ' -f 1)
+    printf "%s\n%s\n" "[license]" "$hostname = ${ioulicense:0:16}" 
+    printf "%s\n%s" "[license]" "$hostname = ${ioulicense:0:16}" > ~/.iourc
+    printf "%s\n" "IOU license was stored in ~/.iourc"
+}
+if [ ! -d "$1" -a "$1" != "--help" -a "$1" != "--key" ]; then
     echo "The directory does not exist!"
     exit 1
 fi
-if ! [ "$1" == "--help" -o "$1" == "-h" ]; then
+if ! [ "$1" == "--help" -o "$1" == "-h" -o "$1" == "--key" -o "$1" == "-k" ]; then
     DIR="$1"
     shift
 fi
-OPTS="$(getopt -o b:f:t:o:y:Y:i::s::n:N:z:Z:c:C:ISFAdha::: --long bg-color:,fg-color:,toolbar-color:,opacity:,sel-bg-color:,sel-fg-color:,image::,symbol::,font-type:,afont-type:,font-size:,afont-size:,font-color:,afont-color:,list-images,list-fonts,list-afonts,list-symbols,delete-backup,help,add-image::: -n $0 -- "$@")"
+OPTS="$(getopt -o b:f:t:o:y:Y:i::s::n:N:z:Z:c:C:ISFAdha:::k --long bg-color:,fg-color:,toolbar-color:,opacity:,sel-bg-color:,sel-fg-color:,image::,symbol::,font-type:,afont-type:,font-size:,afont-size:,font-color:,afont-color:,list-images,list-fonts,list-afonts,list-symbols,delete-backup,key,help,add-image::: -n $0 -- "$@")"
 
 if [ $? -ne 0 ]; then
     echo "Failed parsing options, see ./gns3hack.sh --help for more info"
@@ -352,6 +378,10 @@ do
             else
                 echo "Couldn't find any gsn3 backup"
             fi
+            shift
+            ;;
+        -k|--key)
+            iouKeyGen
             shift
             ;;
 ############################# END TOOLS TO GET PROJECT INFO ######################
