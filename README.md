@@ -70,7 +70,7 @@ Replace old IOU images of an existing project with new once. This also very usef
 4. restart gns3 to apply changes
 ```
 #### Some colored symbols ready for use
-![symbols_005](https://user-images.githubusercontent.com/10103340/29941906-e56b2632-8e48-11e7-850e-77caa0a79ce4.png)
+![selection_007](https://user-images.githubusercontent.com/10103340/29942095-841f8304-8e49-11e7-907b-3fed6f890a14.png)
 
 ### Generate IOU license key
 This will generate IOU licese key and store it in ~/.iourc file
