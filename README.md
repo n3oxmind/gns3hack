@@ -24,12 +24,15 @@ cd gns3-gui-2.0.3 directory
 ./gns3hack.sh -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
 ```
 ![dark1](https://user-images.githubusercontent.com/10103340/29939593-3c172d58-8e41-11e7-80d8-b2a7163fde19.png)
+![dark2](https://user-images.githubusercontent.com/10103340/29940069-e2e0c576-8e42-11e7-9874-782c59795792.png)
+
 #### Solarized Light Theme
 ```
 cd gns3-gui-2.0.3 directory
 ./gns3hack.sh -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
 ```
 ![solarized1](https://user-images.githubusercontent.com/10103340/29939942-7e1e9d3e-8e42-11e7-8e19-f9fa0dac282f.png)
+![solarized2](https://user-images.githubusercontent.com/10103340/29939950-7ff4d4f2-8e42-11e7-9d21-741e5d92bf44.png)
 
 
 ### Installing
