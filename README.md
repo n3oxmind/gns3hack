@@ -19,7 +19,7 @@ These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,.
 ### GNS3 Theming Examples
 #### Dark Theme
 ```
-cd gns3-gui-2.0.3 directory
+cd /path/to/gns3-gui-2.0.3/
 ./gns3hack.sh -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
 ```
 ![dark1](https://user-images.githubusercontent.com/10103340/29939593-3c172d58-8e41-11e7-80d8-b2a7163fde19.png)
@@ -27,7 +27,7 @@ cd gns3-gui-2.0.3 directory
 
 #### Solarized Light Theme
 ```
-cd gns3-gui-2.0.3 directory
+cd /path/to/gns3-gui-2.0.3/
 ./gns3hack.sh . -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
 ```
 ![solarized1](https://user-images.githubusercontent.com/10103340/29939942-7e1e9d3e-8e42-11e7-8e19-f9fa0dac282f.png)
