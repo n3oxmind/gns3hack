@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExecCommandDialog</class>
+ <widget class="QDialog" name="ExecCommandDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>651</width>
+    <height>343</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Command execution</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget {
+    background-color: #323232;
+    color: #BAF73C;
+}
+
+QToolBar {
+    border:0px;
+}
+
+QGraphicsView, QTextEdit, QPlainTextEdit, QTreeWidget, QListWidget, QLineEdit, QSpinBox, QComboBox {
+    background-color: #282828;
+}
+
+QLabel, QMenu, QStatusBar {
+  color: #BAF73C;
+}
+
+QMenuBar::item {
+    background-color: #323232;
+}
+
+QMenu::item:selected {
+    color: #f2f2f2;
+    background-color: #383838;
+}
+
+QToolButton:hover {
+    background-color: #383838;
+}
+
+QGroupBox {
+    color: #BAF73C;
+    font: bold 12px;
+    padding: 15px;
+    border-style: none;
+}
+
+QAbstractScrollArea::corner {
+    background: #323232;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal, QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+  background: none;
+}
+
+QComboBox {
+    selection-color: #f2f2f2;
+    selection-background-color: #323232;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #282828;
+}
+
+QDockWidget, QMenuBar, QPushButton, QToolButton, QTabWidget, QHeaderView::section {
+    color: #BAF73C;
+    font: bold 11px;
+}
+
+QTabBar {
+    color: #BAF73C;
+}
+
+QRadioButton, QCheckBox {
+  color: #BAF73C;
+}
+
+QRadioButton::disabled, QCheckBox::disabled {
+  color: gray;
+}
+// bg-color=#282828
+// fg-color=#BAF73C
+// tool-bar=#323232
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QPlainTextEdit" name="uiOutputTextEdit"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QDialogButtonBox" name="uiButtonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../resources/resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>uiButtonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ExecCommandDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiButtonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ExecCommandDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
