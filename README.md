@@ -23,7 +23,7 @@ These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,.
 cd gns3-gui-2.0.3 directory
 ./gns3hack.sh -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
 ```
-
+![dark1](https://user-images.githubusercontent.com/10103340/29939593-3c172d58-8e41-11e7-80d8-b2a7163fde19.png)
 #### Solarized Light Theme
 ```
 cd gns3-gui-2.0.3 directory
