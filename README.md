@@ -1,14 +1,14 @@
 		
 # gns3hack
 
-gns3hack is a shell scripts that will allows you to do the following:
-	- Change gns3 background color, forground color and oopacity
-	- Change images (IOU,ISO,qemu,vbox,..etc) used by a project(s)
-	- Change devices symbols used by a project(s)
-	- Change font attributes used by a project(s)
-	- Delete gns3.backup files (cleanup utility)
-	- Get information about project(s) e.g.(images and fonts used by project(s))
-	- Generate IOU license key
+gns3hack is a shell script that will allows you to do the following:
+- Change gns3 background color, forground color and oopacity
+- Change images (IOU,ISO,qemu,vbox,..etc) used by a project(s)
+- Change devices symbols used by a project(s)
+- Change font attributes used by a project(s)
+- Delete gns3.backup files (cleanup utility)
+- Get information about project(s) e.g.(images and fonts used by project(s))
+- Generate IOU license key
 
 
 ### Prerequisites
