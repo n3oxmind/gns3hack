@@ -13,11 +13,10 @@ gns3hack is a shell script that will allows you to do the following:
 
 ### Prerequisites
 These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,..etc)
-1. Download gns3-gui source code from github.com (`url: https://github.com/GNS3/gns3-gui/releases/tag/v2.0.3`)
-2. Download gns3-gui/gns3/ui from (`https://github.com/n3oxmind/gns3hack`) and copy paste it to the original gns3-gui folder in step 1
+1. Download gns3-gui source code from github.com [gns3-gui-2.0.3](url: https://github.com/GNS3/gns3-gui/releases/tag/v2.0.3)
+2. Download gns3-gui/gns3/ui from [gns3hack](https://github.com/n3oxmind/gns3hack) and copy paste it to the original gns3-gui folder in step 1
 
 ### GNS3 Theming Examples
-
 #### Dark Theme
 ```
 cd gns3-gui-2.0.3 directory
@@ -29,39 +28,51 @@ cd gns3-gui-2.0.3 directory
 #### Solarized Light Theme
 ```
 cd gns3-gui-2.0.3 directory
-./gns3hack.sh -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
+./gns3hack.sh . -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
 ```
 ![solarized1](https://user-images.githubusercontent.com/10103340/29939942-7e1e9d3e-8e42-11e7-8e19-f9fa0dac282f.png)
 ![solarized2](https://user-images.githubusercontent.com/10103340/29939950-7ff4d4f2-8e42-11e7-9d21-741e5d92bf44.png)
 
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+### List and Replace Images used by a project(s)
+replace old IOU images of an existing project with new once. this also very useful incase you working on aproject and suddenly you found a feature not supported (or not working) by your installed IOU image. This will help you replace all IOU images at once.
+Note: you need to add the new image(s) normally through gns3 prefrences menu
 
 ```
-Give the example
+1. cd /path/to/GNS3/projects/folder
+2. ./gns3hack . --list-images
+"i86bi-linux-l3-adventerprisek9-15.2.2T.bin"
+"i86bi-linux-l3-adventerprisek9-15.2.2T.bin"
+"i86bi-linux-l3-adventerprisek9-15.2.2T.bin"
+"i86bi-linux-l3-adventerprisek9-15.2.2T.bin"
+"i86bi_linux_l2-advipservicesk9-ms CLS.nov3_2015_high_iron"
+3. ./gns3hack --image "i86bi-linux-l3-adventerprisek9-15.2.2T.bin" "i86bi-linux-l3-adventerprisek9-15.5.2T.bin"
+4. restart gns3 to apply changes
+```
+### List and Replace multiple project symbols 
+0. copy the new symbols to $HOME/GNS3/symbols/
+1. cd /path/to/GNS3/projects/folder
+2. ./gns3hack . --list-symbols"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+"router5.svg"
+":/symbols/cloud.svg"
+":/symbols/ethernet_switch.svg"
+
+3. ./gns3hack . -s "router5.svg" "newsymbol.svg"
+4. restart gns3 to apply changes
+
+### Generate IOU license key
+This will generate IOU licese key and store it in ~/.iourc file
+```
+./gns3hack --key
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+### see ./gns3hack --help for more hacks
 
