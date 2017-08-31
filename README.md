@@ -20,7 +20,7 @@ These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,.
 #### Dark Theme
 ```
 cd /path/to/gns3-gui-2.0.3/
-./gns3hack.sh -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
+./gns3hack.sh . -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
 ```
 ![dark1](https://user-images.githubusercontent.com/10103340/29939593-3c172d58-8e41-11e7-80d8-b2a7163fde19.png)
 ![dark2](https://user-images.githubusercontent.com/10103340/29940069-e2e0c576-8e42-11e7-9874-782c59795792.png)
