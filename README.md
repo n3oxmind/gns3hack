@@ -35,10 +35,10 @@ cd gns3-gui-2.0.3 directory
 
 
 ### List and Replace Images used by a project(s)
-replace old IOU images of an existing project with new once. this also very useful incase you working on aproject and suddenly you found a feature not supported (or not working) by your installed IOU image. This will help you replace all IOU images at once.
-Note: you need to add the new image(s) normally through gns3 prefrences menu
+Replace old IOU images of an existing project with new once. This also very useful incase you working on a project and suddenly you found a feature not supported (or not working) by your installed IOU image. This will help you replace all IOU images at once.
 
 ```
+0. add the new image(s) normally through gns3 prefrences menu
 1. cd /path/to/GNS3/projects/folder
 2. ./gns3hack . --list-images
 "i86bi-linux-l3-adventerprisek9-15.2.2T.bin"
@@ -50,6 +50,7 @@ Note: you need to add the new image(s) normally through gns3 prefrences menu
 4. restart gns3 to apply changes
 ```
 ### List and Replace multiple project symbols 
+```
 0. copy the new symbols to $HOME/GNS3/symbols/
 1. cd /path/to/GNS3/projects/folder
 2. ./gns3hack . --list-symbols"router5.svg"
@@ -67,6 +68,7 @@ Note: you need to add the new image(s) normally through gns3 prefrences menu
 
 3. ./gns3hack . -s "router5.svg" "newsymbol.svg"
 4. restart gns3 to apply changes
+```
 
 ### Generate IOU license key
 This will generate IOU licese key and store it in ~/.iourc file
