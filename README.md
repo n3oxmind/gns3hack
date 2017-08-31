@@ -2,7 +2,7 @@
 # gns3hack
 
 gns3hack is a shell script that will allows you to do the following:
-- Change gns3 background color, forground color and oopacity
+- Change gns3 background color, foreground color and opacity
 - Change images (IOU,ISO,qemu,vbox,..etc) used by a project(s)
 - Change devices symbols used by a project(s)
 - Change font attributes used by a project(s)
@@ -12,19 +12,18 @@ gns3hack is a shell script that will allows you to do the following:
 
 
 ### Prerequisites
-These steps required only if you want to change the look of gns3-gui (theme)
-	1. Download gns3-gui source code from github.com (`url: https://github.com/GNS3/gns3-gui/releases/tag/v2.0.3`)
-	2. Download gns3-gui/gns3/ui from (`https://github.com/n3oxmind/gns3hack`) and copy paste it to the original gns3-gui folder in step 1
-	3. cd gns3-gui directory
-	3. Use gns3hack.sh script to do some changes to gns3-gui
+These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,..etc)
+1. Download gns3-gui source code from github.com (`url: https://github.com/GNS3/gns3-gui/releases/tag/v2.0.3`)
+2. Download gns3-gui/gns3/ui from (`https://github.com/n3oxmind/gns3hack`) and copy paste it to the original gns3-gui folder in step 1
 
-### GNS3 Theming Example
+### GNS3 Theming Examples
 
 #### Dark Theme
 ```
 cd gns3-gui-2.0.3 directory
-./gns3hack.sh -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
+./gns3hack.sh -b "#282828" -f "#d5c4a1" -t "#323232" -o 0.98
 ```
+
 #### Solarized Light Theme
 ```
 cd gns3-gui-2.0.3 directory
