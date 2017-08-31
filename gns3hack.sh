@@ -90,7 +90,7 @@ isValidColor () {
 }
 # Validate the opacity
 isValidOpacity () {
-    if [[ ! "$1" =~ $re_opacity ]] || [ ! $3 = 1.0 ]; then
+    if [[ ! "$1" =~ $re_opacity ]] && [ "$1" != "1.0" ] ; then
         echo "ERROR: Window opacity must be between 0.0 and 1.0"
         exit 1
     fi
@@ -160,7 +160,6 @@ changeColor () {
     fi
 }
 iouKeyGen () {
-#   echo "TODO.."
     echo "start generation IOU license key"
     hostid=$(hostid)
     ioukey=$((16#$hostid))
