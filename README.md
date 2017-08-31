@@ -29,11 +29,8 @@ cd gns3-gui-2.0.3 directory
 cd gns3-gui-2.0.3 directory
 ./gns3hack.sh -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
 ```
-#### Light Theme
-```
-cd gns3-gui-2.0.3 directory
-./gns3hack.sh -b "#fdf6e3" -f "#586e75" -t "#fae8b7"
-```
+![solarized1](https://user-images.githubusercontent.com/10103340/29939942-7e1e9d3e-8e42-11e7-8e19-f9fa0dac282f.png)
+
 
 ### Installing
 
