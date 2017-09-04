@@ -68,24 +68,26 @@ isValidColor () {
         echo "ERROR: colors must be in hex format or names e.g. "#ffffff" or white"
         exit 1
     fi
-    old_bg_color=$(grep -oP -m 1 "(?<=bg-color=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
-    old_fg_color=$(grep -oP -m 1 "(?<=fg-color=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
-    old_toolbar_color=$(grep -oP -m 1 "(?<=tool-bar=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
-    old_sel_bg_color=$(grep -oP -m 1 "(?<=selection-bg=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
-    old_sel_fg_color=$(grep -oP -m 1 "(?<=selection-fg=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
-    if [ "$old_bg_color" == "$1" ]; then 
-        ccFlag=true
-    elif [ "$old_fg_color" == "$1" ]; then 
-        ccFlag=true
-    elif [ "$old_toolbar_color" == "$1" ]; then 
-        ccFlag=true
-    elif [ "$old_sel_bg_color" == "$1" ]; then 
-        ccFlag=true
-    elif [ "$old_sel_fg_color" == "$1" ]; then 
-        ccFlag=true
-    else
-        # color confliction
-        ccFlag=false
+    if [ "$2" != "-c" -a "$2" != "-C" -a "$2" != "--font-color" -a "$2" != "--afont-color" ]; then
+        old_bg_color=$(grep -oP -m 1 "(?<=bg-color=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
+        old_fg_color=$(grep -oP -m 1 "(?<=fg-color=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
+        old_toolbar_color=$(grep -oP -m 1 "(?<=tool-bar=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
+        old_sel_bg_color=$(grep -oP -m 1 "(?<=selection-bg=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
+        old_sel_fg_color=$(grep -oP -m 1 "(?<=selection-fg=).*" "$DIR"/gns3/ui/capture_dialog.ui) 
+        if [ "$old_bg_color" == "$1" ]; then 
+            ccFlag=true
+        elif [ "$old_fg_color" == "$1" ]; then 
+            ccFlag=true
+        elif [ "$old_toolbar_color" == "$1" ]; then 
+            ccFlag=true
+        elif [ "$old_sel_bg_color" == "$1" ]; then 
+            ccFlag=true
+        elif [ "$old_sel_fg_color" == "$1" ]; then 
+            ccFlag=true
+        else
+            # color confliction
+            ccFlag=false
+        fi
     fi
 }
 # Validate the opacity
@@ -148,7 +150,7 @@ isSymbolExist () {
 }
 # Check passing number of arguments
 numArgs () {
-    if [ "$#" -ne 3 ]; then
+    if [ "$1" -ne 3 ]; then
         echo "ERROR!: Too many arguments"
         echo "Try './gns3hack.sh --help' for more information"
         exit 1
@@ -268,7 +270,7 @@ do
 ############################# start gns3 project(s) tools ########################
         -i|--image)
             # change images of an existing project(s)
-            numArgs
+            numArgs "$#"
             oldimage="$2"
             newimage="$3"
             isImageExist "$oldimage"
@@ -278,7 +280,7 @@ do
             break
             ;;
         -s|--symbol)
-            numArgs
+            numArgs "$#"
             oldSymbol="$2"
             newSymbol="$3"
             isSymbolExist "$oldSymbol"
@@ -303,7 +305,7 @@ do
             ;;
         -c|--font-color)
             # Changing note font-color 
-            isValidColor "$2"
+            isValidColor "$2" "$1"
             newFontColor="$2"
             find "$DIR" -name "*.gns3" -type f -exec sed -i "s:\(fill=..\).[^\\\]*:\1$newFontColor:g" "{}" \+
             echo "Project(s) font color has been changed succussfully"
@@ -326,7 +328,7 @@ do
             ;;
         -C|--afont-color)
             # Changing appliance font-color 
-            isValidColor "$2"
+            isValidColor "$2" "$1"
             newFontColor="$2"
             find "$DIR" -name "*.gns3" -type f -exec sed -i "s|\(fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
             echo "Appliance font color has been changed succussfully"
