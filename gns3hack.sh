@@ -182,15 +182,15 @@ iouKeyGen () {
     # create the license using md5sum
     ioupad1=$'\x4B\x58\x21\x81\x56\x7B\x0D\xF3\x21\x43\x9B\x7E\xAC\x1D\xE6\x8A'
     ioulicense=$(printf '%b' "$ioupad1\x80\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0$ioukey$ioupad1" | md5sum | cut -d ' ' -f 1)
-    printf "%s\n%s\n" "[license]" "$hostname = ${ioulicense:0:16}" 
-    printf "%s\n%s" "[license]" "$hostname = ${ioulicense:0:16}" > ~/.iourc
+    printf "%s\n%s\n" "[license]" "$hostname = ${ioulicense:0:16};" 
+    printf "%s\n%s" "[license]" "$hostname = ${ioulicense:0:16};" > ~/.iourc
     printf "%s\n" "IOU license was stored in ~/.iourc"
 }
-if [ ! -d "$1" -a "$1" != "--help" -a "$1" != "--key" ]; then
+if [ ! -d "$1" -a "$1" != "--help" -a "$1" != "--key" -a "$1" != "-h" -a "$2" != "installed" ]; then
     echo "The directory does not exist!"
     exit 1
 fi
-if ! [ "$1" == "--help" -o "$1" == "-h" -o "$1" == "--key" -o "$1" == "-k" ]; then
+if ! [ "$1" == "--help" -o "$1" == "-h" -o "$1" == "--key" -o "$1" == "-k" -o "$2" == "installed" ]; then
     DIR="$1"
     shift
 fi
@@ -212,6 +212,10 @@ SFlag=false
 re_digit='^[0-9]{,2}\.[0-9]$'
 re_hexcolor='^#[0-9a-fA-F]{6}$'
 re_opacity='^0\.[0-9]{,2}$'
+# GNS3 default directories
+gns3_images_dir="$HOME/GNS3/images"
+gns3_projects_dir="$HOME/GNS3/projects"
+gns3_configs_dir="$HOME/GNS3/configs"
 
 while [ $# -gt 0 ] && [ "$1" != "--" ] 
 do
@@ -345,10 +349,16 @@ do
         -I|--list-images)
             # List images of an exist project(s)
             #re_images="\\.\(bin\|image\|vmdk\|vdi\|vhd\|qcow2\|qcow\|img\|raw\|ovf\|ova\)"
-            re_images="(?<=\"path\":\ ).[^,]*" # better format also match images without extension
-            find "$DIR" -name "*.gns3" -type f -exec grep -oP --color "$re_images" "{}" \+
-            isEmptyProject
-            shift
+            if [ "$2" == "installed" ]; then
+                ls "${gns3_images_dir}" -R
+                shift 2
+                exit 1
+            else 
+                re_images="(?<=\"path\":\ ).[^,]*" # better format also match images without extension
+                find "$DIR" -name "*.gns3" -type f -exec grep -oP --color "$re_images" "{}" \+
+                isEmptyProject
+                shift
+            fi
             ;;
         #-X) TODO: need to match based on node_type 
             # List project devices names, images and ram

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditProjectDialog</class>
+ <widget class="QDialog" name="EditProjectDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>549</width>
+    <height>276</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Edit project</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget {
+    background-color: #fae8b7;
+    color: #586e75;
+}
+
+QToolBar {
+    border:0px;
+}
+
+QGraphicsView, QTextEdit, QPlainTextEdit, QTreeWidget, QListWidget, QLineEdit, QSpinBox, QComboBox {
+    background-color: #fdf6e3;
+}
+
+QLabel, QMenu, QStatusBar {
+  color: #586e75;
+}
+
+QMenuBar::item {
+    background-color: #fae8b7;
+}
+
+QMenu::item:selected {
+    color: #f2f2f2;
+    background-color: #383838;
+}
+
+QToolButton:hover {
+    background-color: #383838;
+}
+
+QGroupBox {
+    color: #586e75;
+    font: bold 12px;
+    padding: 15px;
+    border-style: none;
+}
+
+QAbstractScrollArea::corner {
+    background: #fae8b7;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal, QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+  background: none;
+}
+
+QComboBox {
+    selection-color: #f2f2f2;
+    selection-background-color: #fae8b7;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #fdf6e3;
+}
+
+QDockWidget, QMenuBar, QPushButton, QToolButton, QTabWidget, QHeaderView::section {
+    color: #586e75;
+    font: bold 11px;
+}
+
+QTabBar {
+    color: #586e75;
+}
+
+QRadioButton, QCheckBox {
+  color: #586e75;
+}
+
+QRadioButton::disabled, QCheckBox::disabled {
+  color: gray;
+}
+// bg-color=#fdf6e3
+// fg-color=#586e75
+// tool-bar=#fae8b7
+// selection-bg=#383838 
+// selection-fg=#f2f2f2
+ </string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="uiProjectNameLabel">
+     <property name="text">
+      <string>Project Name:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="uiProjectNameLineEdit"/>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QCheckBox" name="uiProjectAutoCloseCheckBox">
+     <property name="text">
+      <string>Leave this project running in the background when closing GNS3</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QSpinBox" name="uiSceneHeightSpinBox">
+     <property name="suffix">
+      <string> px</string>
+     </property>
+     <property name="minimum">
+      <number>500</number>
+     </property>
+     <property name="maximum">
+      <number>1000000</number>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QCheckBox" name="uiProjectAutoOpenCheckBox">
+     <property name="text">
+      <string>Open this project in the background when GNS3 server starts</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="3">
+    <widget class="QCheckBox" name="uiProjectAutoStartCheckBox">
+     <property name="text">
+      <string>Start all nodes when this project is opened</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QSpinBox" name="uiSceneWidthSpinBox">
+     <property name="suffix">
+      <string> px</string>
+     </property>
+     <property name="minimum">
+      <number>500</number>
+     </property>
+     <property name="maximum">
+      <number>1000000</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="uiButtonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="uiSceneWidthLabel">
+     <property name="text">
+      <string>Scene width:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="uiSceneHeightLabel">
+     <property name="text">
+      <string>Scene height:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>uiButtonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>EditProjectDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiButtonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>EditProjectDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
