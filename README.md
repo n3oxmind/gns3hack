@@ -13,8 +13,8 @@ gns3hack is a shell script that will allows you to do the following:
 
 ### Prerequisites
 These steps required only if you want to change gns3-gui colors (bg,fg,toolbar,..etc)
-1. Download gns3-gui source code from github.com [gns3-gui-2.0.3](url: https://github.com/GNS3/gns3-gui/releases/tag/v2.0.3)
-2. Download gns3-gui/gns3/ui from [gns3hack](https://github.com/n3oxmind/gns3hack) and copy paste it to the original gns3-gui folder in step 1
+1. Download gns3-gui source code from github.com [gns3-gui](https://github.com/GNS3/gns3-gui/releases)
+2. Download gns3-patch from [gns3hack](https://github.com/n3oxmind/gns3hack) and patch the original version in step 1.
 
 ### GNS3 Theming Examples
 #### Dark Theme
