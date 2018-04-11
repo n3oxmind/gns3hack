@@ -11,7 +11,7 @@ gns3hack is a shell script that will allows you to do the following:
 ### Prerequisites
 Create a symbolic link to gns3hack
 ```
-sudo ~/Download/gna3hack/gna3hack.sh /usr/bin/gns3hack
+sudo ln -s ~/Download/gna3hack/gna3hack.sh /usr/bin/gns3hack
 ```
 ### Get some info about your project(s) 
 ```
