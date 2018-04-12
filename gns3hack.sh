@@ -178,7 +178,7 @@ while [ $# -gt 0 ] && [ "$1" != "--" ]; do
         -C|--afont-color)
             _isvalidcolor "$2" "$1"
             newFontColor="$2"
-            find "$current_dir" -name "*.gns3" -type f -exec sed -i "s|\(fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
+            find "$current_dir" -name "*.gns3" -type f -exec sed -i "s|\(text fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
             echo "Appliance font color has been changed succussfully"
             shift 2
             ;;
