@@ -113,7 +113,7 @@ _ioukeygen () {
     printf "%s\n" "IOU license was stored in ~/.iourc"
 }
 
-OPTS="$(getopt -o f:,F:,s:,S:,c:,C:,i::,m::,h -l font-type:,font-color:,font-size:,afont-type:,afont-color:,afont-size:,images::,symbol::,li,ls,lf,lF,help -n $0 -- "$@")"
+OPTS="$(getopt -o f:,F:,s:,S:,c:,C:,i::,m::,hk -l key,font-type:,font-color:,font-size:,afont-type:,afont-color:,afont-size:,images::,symbol::,li,ls,lf,lF,help -n $0 -- "$@")"
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed parsing options"
     echo "Try '$0 --help' for more information."
