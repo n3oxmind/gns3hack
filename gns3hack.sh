@@ -59,6 +59,7 @@ isbackedup="false"
 _backup() {
     if [ "${isbackedup}" == "false" ]; then
         find ${current_dir} -type f -name '*.gns3' -exec $SHELL -c '[[ ! -f "{}".bak ]] && cp -a "{}" "{}".bak' \;
+        isbackedup="true"
     fi
 }
 _isemptyproject () {
@@ -129,7 +130,7 @@ _default_fonts() {
     local newFontColor="${1}"
     local newaFontColor=${2}
     local newaFontSize=11
-    _backup "true"
+    _backup
     find "${current_dir}" -name "*.gns3" -type f -exec sed -i -e "s:\(font-family=..\).[^\\\]*:\1$newFontType:g" \
         -e "s:\(text fill=..\).[^\\\]*:\1$newFontColor:g" \
         -e "s/\(font-family: \).[^;]*/\1$newaFontType/g" \
@@ -157,7 +158,7 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
             oldimage="$2"
             newimage="$3"
             _isimageexist "$oldimage"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec  sed -i "s|$oldimage|$newimage|g"  "{}" \+
             echo "Project(s) image(s) has been changed succussfully..."
             exit 0
@@ -167,14 +168,14 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
             oldSymbol="$2"
             newSymbol="$3"
             _issymbolexist "$oldSymbol"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f  -exec sed -i "s:$oldSymbol:$newSymbol:g" "{}" \+
             echo "Symbol(s) has been changed succussfully"
             exit 0
             ;;
         -f|--font-type)
             newFontType="$2"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s:\(font-family=..\).[^\\\]*:\1$newFontType:g" "{}" \+
             echo "Project(s) font family has been changed succussfully"
             shift 2
@@ -183,7 +184,7 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
             # Change note font-size
             _isdigit $2
             newFontSize="$2"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s:\(font-size=..\).[^\\\]*:\1$newFontSize:g" "{}" \+
             echo "Project(s) font size has been change succussfully"
             shift 2
@@ -191,14 +192,14 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
         -c|--font-color)
             _isvalidcolor "$2" "$1"
             newFontColor="$2"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s:\(fill=..\).[^\\\]*:\1$newFontColor:g" "{}" \+
             echo "Project(s) font color has been changed succussfully"
             shift 2
             ;;
         -F|--afont-type)
             newFontType="$2"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s|\(font-family: \).[^;]*|\1$newFontType|g" "{}" \+
             echo "Appliance font family has been changed succussfully"
             shift 2
@@ -206,7 +207,7 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
         -S|--afont-size)
             _isdigit $2
             newFontSize="$2";
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s|\(font-size: \)[0-9]\+\(\.[0-9]\)\?[^;]*|\1$newFontSize|g" "{}" \+
             echo "Appliance font size has been changed succussfully"
             shift 2
@@ -214,7 +215,7 @@ while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do
         -C|--afont-color)
             _isvalidcolor "$2" "$1"
             newFontColor="$2"
-            _backup "true"
+            _backup
             find "${current_dir}" -name "*.gns3" -type f -exec sed -i "s|\(text fill: \)#.\{6\}[^;]*|\1$newFontColor|g" "{}" \+
             echo "Appliance font color has been changed succussfully"
             shift 2
