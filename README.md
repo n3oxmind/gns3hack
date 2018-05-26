@@ -18,7 +18,6 @@ sudo ln -s ~/gns3hack.sh /usr/bin/gns3hack
 ### Prettify project (from a predefined colors)
 ```sh
 $ gns3hack --dfont light
-"i86bi-linux-l3-adventerprisek9-15.5.2T.bin"
 ```
 **Before prettifying**
 ![before prettify](https://user-images.githubusercontent.com/10103340/40515671-89ab6c94-5f62-11e8-9ad7-b1fba5f30837.png)
