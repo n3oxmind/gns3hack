@@ -150,7 +150,7 @@ if [ $? -ne 0 ]; then
     echo "Try '$0 --help' for more information."
     exit 99
 fi
-while [ $# -gt 0 ] && [ "$1" != "--ls" ]; do 
+while [ $# -gt 0 ] && [ "$1" != "--" ]; do 
     case "$1" in
         -i|--image)
             # change images of an existing project(s)
