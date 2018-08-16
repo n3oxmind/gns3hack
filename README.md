@@ -57,18 +57,18 @@ $ gns3hack --ls
 "Server3.svg"
 "Server3.svg"
 "PC1.svg"
-
+```
 ```sh
 $ gns3hack -m "PC1.svg" "newsymbol.svg"
 ```
 ### Generate IOU license key
-This will generate IOU licese key and store it in ~/.iourc file
+This will generate IOU licese key and store it in `~/.iourc` file
 ```sh
 $ gns3hack --key
 ```
 ### Prettify project (from a predefined colors)
 ```sh
-$ gns3hack --dfont light
+$ gns3hack --pretty light
 ```
 **Before prettifying**
 ![before prettify](https://user-images.githubusercontent.com/10103340/40515671-89ab6c94-5f62-11e8-9ad7-b1fba5f30837.png)
@@ -77,6 +77,7 @@ $ gns3hack --dfont light
 
 **Note:**
 * GNS3 need to know about the new images before replacing , so add them through `Edit->Prefrences`.
-* New Fonts need to by added to your system first or gns3 will fallback to the default.
+* New Fonts need to be added to your system first or gns3 will fallback to the default.
 * New symbols (icons) need to be added to gns3 default symbols location (~/GNS3/symbols).
+For more information please see `./gns3hack.sh --help`.
 
