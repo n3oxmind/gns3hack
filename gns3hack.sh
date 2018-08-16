@@ -1,13 +1,13 @@
 #!/bin/env bash
 set -e
 current_dir=${PWD}
-# Uncomment this if you want to set the default font globally (for previous and new projects)
+# Uncomment this if you want to set the default font globally (for current and new projects)
 #USER=$(logname)
 #gns3_gui_conf="/home/$USER/.config/GNS3/gns3_gui.conf"
 
 _usage() {
     printf "%s\n" "Usage: gns3hack [-fcsFCS] <value>"
-    printf "%s\n" "   or: gns3hack --dfont  <light|dark>"
+    printf "%s\n" "   or: gns3hack --pretty  <light|dark>"
     printf "%s\n" "   or: gns3hack --image  <current_image> <new_image>"
     printf "%s\n\n" "   or: gns3hack --symbol <current_symbol> <new_symbol>"
     printf "%s\n" "Options:"
@@ -17,7 +17,7 @@ _usage() {
     printf "  %s\t\t%s\n" "-F, --afont-type" "Change appliance font-family"
     printf "  %s\t\t%s\n" "-C, --afont-color" "Change appliance font color"
     printf "  %s\t\t%s\n" "-S, --afont-size" "Change appliance font size"
-    printf "  %s\t\t\t%s\n" "-d, --dfont" "Change fonts from a predefined colors"
+    printf "  %s\t\t\t%s\n" "-p, --pretty" "Change fonts from a predefined colors"
     printf "  %s\t\t\t%s\n" "-k, --key" "Generate IOU license key"
     printf "  %s\t\t\t%s\n" "-i, --image" "Change images (IOU,IOS,qemu,vbox,..) used by a  project(s)"
     printf "  %s\t\t\t%s\n" "-m, --symbol" "Change router,switch,etc.. symbol(icon)"
@@ -41,8 +41,8 @@ _usage() {
     printf "  %s\t%s\n"  "  3. gns3hack -i \"i86bi-linux-l3-adventerprisek9-15.4.2T4.bin\" \"i86bi-linux-l3-adventerprisek9-15.5.2T.bin\"" "# Replace the image"
     printf "  %s\n"  "  4. restart gns3"
     printf "%s\t%s\n"  "Make gns3 project pretty"
-    printf "  %s\t%s\n"  "gns3hack --dfont light" "# for light theme"
-    printf "  %s\t%s\n\n"  "gns3hack --dfont dark" "# for dark theme" 
+    printf "  %s\t%s\n"  "gns3hack --pretty light" "# for light theme"
+    printf "  %s\t%s\n\n"  "gns3hack --pretty dark" "# for dark theme" 
     printf "%s\n"   "To change all projects images, cd to main project directory instead of specific project directory in step 1 "
     printf "%s"   "Note: Any new image(s) must be added to gns3 and installed to the same directory as the old one, "
     printf "%s"  "if you dont add the new image(s), you'll receive this error message 'The image image-name is missing'. "
@@ -144,7 +144,7 @@ _default_fonts() {
 }
 
 
-OPTS="$(getopt -o f:,F:,s:,S:,c:,C:,i::,m::,d:,hkv -l key,font-type:,font-color:,font-size:,afont-type:,afont-color:,afont-size:,images::,symbol::,li,ls,lf,lF,dfont:,version,help -n $0 -- "$@")"
+OPTS="$(getopt -o f:,F:,s:,S:,c:,C:,i::,m::,d:,hkv -l key,font-type:,font-color:,font-size:,afont-type:,afont-color:,afont-size:,images::,symbol::,li,ls,lf,lF,pretty:,version,help -n $0 -- "$@")"
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed parsing options"
     echo "Try '$0 --help' for more information."
@@ -221,7 +221,8 @@ while [ $# -gt 0 ] && [ "$1" != "--" ]; do
             shift 2
             ;;
         -v|--version)
-            echo "gns3hack v1.2.0"
+            echo "gns3hack v2.1.9"
+            echo "support version 2.x.x and later"
             exit 0
             ;;
         --ls|--list-symbols)
@@ -252,7 +253,7 @@ while [ $# -gt 0 ] && [ "$1" != "--" ]; do
             fi
             shift
             ;;
-        -d|--dfont)
+        -p|pretty)
             # apply default font type, color, size to a project(s) 
             if [ "${2}" == light ]; then
                 _default_fonts "#424242" "#03a9f4"
