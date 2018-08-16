@@ -79,5 +79,6 @@ $ gns3hack --pretty light
 * GNS3 need to know about the new images before replacing , so add them through `Edit->Prefrences`.
 * New Fonts need to be added to your system first or gns3 will fallback to the default.
 * New symbols (icons) need to be added to gns3 default symbols location (~/GNS3/symbols).
+
 For more information please see `./gns3hack.sh --help`.
 
