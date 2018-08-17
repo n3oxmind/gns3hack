@@ -2,7 +2,7 @@
 # gns3hack
 
 gns3hack is a shell script that allows modifying existing project(s)
-- Replace L2/L3,ISO images of an existing project(s)
+- Replace L2/L3,IOS images of an existing project(s)
 - Change devices symbols(icons) of an existing project(s)
 - Change font attributes used by a project(s) (support note font and appliance font: type,color,size)
 - Get information about project(s) e.g.(images and fonts used by project(s)) (this could be use to fix corrupted project)
