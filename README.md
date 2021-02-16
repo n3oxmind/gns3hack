@@ -1,5 +1,5 @@
 		
-# gns3hack
+# DEPRECATED - use on your own risk
 
 gns3hack is a shell script that allows modifying existing project(s)
 - Replace L2/L3,IOS images of an existing project(s)
